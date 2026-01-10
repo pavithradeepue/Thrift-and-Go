@@ -7,19 +7,20 @@ const App = () => {
   const [currentView, setCurrentView] = useState('home');
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // AUTOMATIC TIMER: Switches from Home -> Browse after 5 SECONDS
+  // --- AUTOMATIC TIMER (3 Seconds) ---
   useEffect(() => {
     if (currentView === 'home') {
       const timer = setTimeout(() => {
         setCurrentView('browse');
-      }, 5000); // 5000ms = 5 seconds
-
+      }, 3000); 
       return () => clearTimeout(timer);
     }
   }, [currentView]);
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white font-sans selection:bg-amber-500 selection:text-black">
+    // Updated background to light cream and text to dark gray
+    // Updated selection color to the new beige accent
+    <div className="bg-[#FDFCF8] min-h-screen text-gray-900 font-sans selection:bg-[#CFB997] selection:text-white">
       <main>
         {currentView === 'home' && <HomePage />}
         

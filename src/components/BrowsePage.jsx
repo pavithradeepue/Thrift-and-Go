@@ -1,19 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, User, Package, Heart, Settings, List, BarChart2, PlusCircle, X, HelpCircle } from 'lucide-react';
+import { ShoppingCart, User, Package, Heart, Settings, List, BarChart2, PlusCircle, X, HelpCircle, RefreshCw } from 'lucide-react';
 import { clothingItems } from '../data/clothingItems';
+import UploadModal from './UploadModal'; // <--- IMPORT MODAL
 
 const BrowsePage = ({ setCurrentPage, setSelectedItem }) => {
   // --- STATE ---
   const [rotation, setRotation] = useState(0);
   const containerRef = useRef(null);
   
-  // User Role (Default: Seller)
-  const [userRole, setUserRole] = useState('Seller'); 
+  // User & Modal State
+  const [userRole, setUserRole] = useState('Seller'); // Default to Seller to see button
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false); // <--- MODAL STATE
 
-  // 3D Snake Curve Config
-  const RADIUS_Y = 400; 
+  // 3D Config
+  const RADIUS_Y = 350; 
   const CURVE_INTENSITY = 200; 
+  const accentColor = "#CFB997"; // Beige Accent
 
   // --- SCROLL LOGIC ---
   useEffect(() => {
@@ -51,90 +54,71 @@ const BrowsePage = ({ setCurrentPage, setSelectedItem }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 overflow-hidden flex flex-col items-center justify-center relative">
+    <div className="min-h-screen bg-[#FDFCF8] overflow-hidden flex flex-col items-center justify-center relative">
       
-      {/* Background */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 -z-20"></div>
+      {/* --- MODAL INJECTION --- */}
+      {isUploadModalOpen && <UploadModal onClose={() => setIsUploadModalOpen(false)} />}
 
-      {/* --- TOP NAVIGATION BAR --- */}
-      <nav className="absolute top-0 left-0 right-0 p-6 z-50 flex justify-between items-center">
-        
-        {/* Logo */}
-        <h1 className="text-2xl font-bold text-white tracking-tighter cursor-pointer">
-          KLICK<span className="text-amber-400">PIN</span>
-        </h1>
+      {/* Background Gradient */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white via-[#FDFCF8] to-gray-100 -z-20"></div>
 
-        {/* Right Icons */}
-        <div className="flex items-center gap-6 relative">
+      {/* --- TOP NAVIGATION --- */}
+      <div className="absolute top-0 right-0 p-8 z-50 flex items-center gap-6">
            
            {/* Cart Icon */}
-           <button className="text-gray-300 hover:text-white transition-colors relative">
+           <button className="text-gray-600 hover:text-black transition-colors relative">
              <ShoppingCart size={26} strokeWidth={1.5} />
-             <span className="absolute -top-2 -right-2 w-5 h-5 bg-red-600 rounded-full text-[10px] flex items-center justify-center font-bold text-white border-2 border-gray-900">2</span>
+             <span className="absolute -top-2 -right-2 w-5 h-5 bg-red-600 rounded-full text-[10px] flex items-center justify-center font-bold text-white border-2 border-[#FDFCF8]">2</span>
            </button>
 
            {/* Profile Button */}
            <div className="relative">
              <button 
                onClick={() => setIsProfileOpen(!isProfileOpen)}
-               className={`transition-colors ${isProfileOpen ? 'text-white' : 'text-gray-300 hover:text-white'}`}
+               className={`transition-colors ${isProfileOpen ? 'text-black' : 'text-gray-600 hover:text-black'}`}
              >
                <User size={28} strokeWidth={1.5} />
              </button>
 
              {/* --- PROFILE DROPDOWN MENU --- */}
              {isProfileOpen && (
-               <div className="absolute right-0 top-14 w-80 bg-[#1a1c23] border border-gray-700 rounded-xl shadow-2xl overflow-hidden animate-fade-in z-50">
+               <div className="absolute right-0 top-14 w-80 bg-white border border-gray-100 rounded-xl shadow-2xl overflow-hidden animate-fade-in z-50">
                  
-                 {/* Header: Title + Close Button (X) */}
-                 <div className="p-5 flex justify-between items-start border-b border-gray-700 bg-gray-900/50">
-                   <div>
-                     <h3 className="text-white font-bold text-lg">Profile Details</h3>
-                     
-                     {/* TOGGLE SWITCH INTEGRATED HERE */}
-                     <div className="flex items-center gap-3 mt-2">
-                        <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Mode:</span>
-                        <div 
-                          onClick={() => setUserRole(userRole === 'Buyer' ? 'Seller' : 'Buyer')}
-                          className="flex items-center gap-2 bg-gray-800 rounded-full p-1 border border-gray-600 cursor-pointer"
-                        >
-                          <div className={`px-2 py-0.5 rounded-full text-[10px] font-bold transition-all ${userRole === 'Buyer' ? 'bg-blue-500 text-white' : 'text-gray-400'}`}>
-                            BUYER
-                          </div>
-                          <div className={`px-2 py-0.5 rounded-full text-[10px] font-bold transition-all ${userRole === 'Seller' ? 'bg-amber-500 text-black' : 'text-gray-400'}`}>
-                            SELLER
-                          </div>
-                        </div>
-                     </div>
-                   </div>
-
-                   {/* CLOSE BUTTON (This fixes the 'X is defined but never used' error) */}
-                   <button onClick={() => setIsProfileOpen(false)} className="text-gray-400 hover:text-white transition-colors">
-                     <X size={20} />
+                 {/* Header */}
+                 <div className="p-5 flex justify-between items-center border-b border-gray-100 bg-gray-50/50">
+                   <h3 className="text-gray-900 font-bold text-lg">Profile Details</h3>
+                   <button onClick={() => setIsProfileOpen(false)} className="text-gray-400 hover:text-black">
+                     <X size={18} />
                    </button>
                  </div>
 
-                 {/* Menu Content (Auto-Shifts based on Toggle) */}
+                 {/* Menu Content */}
                  <div className="p-2">
-                   
-                   {/* BUYER MODE CONTENT */}
+                   {/* BUYER MODE */}
                    {userRole === 'Buyer' && (
                      <div className="space-y-1 animate-fade-in">
-                       <MenuLink icon={Package} title="My Orders" sub="Track shipments" color="text-blue-400" />
-                       <MenuLink icon={Heart} title="Wishlist" sub="Saved items" color="text-red-400" />
+                       <MenuLink icon={Package} title="My Orders" sub="Track shipments" color="text-blue-500" />
+                       <MenuLink icon={Heart} title="Wishlist" sub="Saved items" color="text-red-500" />
                        <MenuLink icon={Settings} title="Settings" sub="Account preferences" />
                        <MenuLink icon={HelpCircle} title="Help Center" sub="FAQs & Support" />
                      </div>
                    )}
 
-                   {/* SELLER MODE CONTENT */}
+                   {/* SELLER MODE */}
                    {userRole === 'Seller' && (
                      <div className="space-y-1 animate-fade-in">
-                       <MenuLink icon={List} title="Active Listings" sub="Manage sales" color="text-amber-400" />
-                       <MenuLink icon={BarChart2} title="Selling Status" sub="Earnings & Analytics" color="text-green-400" />
+                       <MenuLink icon={List} title="Active Listings" sub="Manage sales" color="text-amber-600" />
+                       <MenuLink icon={BarChart2} title="Selling Status" sub="Earnings & Analytics" color="text-green-600" />
                        
                        <div className="mt-4 px-2 pb-2">
-                         <button className="w-full flex items-center justify-center gap-2 py-3 border border-amber-600/30 bg-amber-900/20 rounded-lg text-amber-400 font-bold hover:bg-amber-900/40 transition-all">
+                         <button 
+                           onClick={() => {
+                             setIsProfileOpen(false); // Close menu
+                             setIsUploadModalOpen(true); // Open Modal
+                           }}
+                           className="w-full flex items-center justify-center gap-2 py-3 border rounded-lg font-bold transition-all uppercase text-sm tracking-wide hover:shadow-md"
+                           style={{ borderColor: accentColor, color: accentColor, backgroundColor: '#FAF9F6' }}
+                         >
                            <PlusCircle size={18} />
                            Upload New Item
                          </button>
@@ -143,26 +127,33 @@ const BrowsePage = ({ setCurrentPage, setSelectedItem }) => {
                    )}
                  </div>
 
+                 {/* Footer: TOGGLE SWITCH */}
+                 <div className="bg-gray-50 p-4 border-t border-gray-100">
+                   <button 
+                     onClick={() => setUserRole(userRole === 'Buyer' ? 'Seller' : 'Buyer')}
+                     className="w-full flex items-center justify-center gap-2 py-2 border border-gray-300 rounded text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-black hover:bg-white hover:shadow-sm transition-all"
+                   >
+                     <RefreshCw size={12} />
+                     SWITCH TO {userRole === 'Buyer' ? 'SELLER' : 'BUYER'}
+                   </button>
+                 </div>
+
                </div>
              )}
            </div>
-        </div>
-      </nav>
-
-      {/* Header Text */}
-      <div className="absolute top-24 z-40 text-center pointer-events-none">
-        <h2 className="text-5xl md:text-7xl font-serif text-white tracking-tight">
-          New <span className="text-amber-400 italic">Arrivals</span>
-        </h2>
-        <p className="text-gray-400 mt-4 text-sm uppercase tracking-widest">
-           {userRole === 'Buyer' ? 'Scroll to shop' : 'Your Virtual Closet'}
-        </p>
       </div>
 
-      {/* 3D Wheel Container */}
+      {/* --- HEADER TEXT --- */}
+      <div className="absolute top-16 z-0 text-center pointer-events-none w-full">
+        <h2 className="text-6xl md:text-8xl font-serif tracking-tighter select-none">
+          <span className="text-gray-900">New</span> <span className="italic" style={{ color: accentColor }}>Arrivals</span>
+        </h2>
+      </div>
+
+      {/* --- 3D WHEEL CONTAINER --- */}
       <div 
         ref={containerRef}
-        className="relative w-full h-[800px] flex items-center justify-center perspective-1000"
+        className="relative w-full h-[800px] flex items-center justify-center perspective-1000 z-10 mt-32" 
         style={{ perspective: '1000px' }} 
       >
         {clothingItems.map((item, index) => {
@@ -178,28 +169,30 @@ const BrowsePage = ({ setCurrentPage, setSelectedItem }) => {
               className="absolute cursor-pointer transition-all duration-300 ease-out group"
               style={{
                 ...style,
-                top: '50%', 
-                left: '50%',
+                top: '50%',
                 marginTop: '-160px', 
                 marginLeft: '-112px', 
               }}
             >
-              {/* Card */}
-              <div className="w-56 h-80 relative bg-gray-800/40 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl overflow-hidden group-hover:border-amber-400/50 transition-colors">
-                <div className="w-full h-full p-4">
-                  <img src={item.image} alt={item.name} className="w-full h-full object-contain drop-shadow-2xl" />
+              {/* Card - Light Mode */}
+              <div className="w-56 h-80 relative bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden group-hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] transition-all duration-300">
+                <div className="w-full h-full p-6 flex items-center justify-center">
+                  <img src={item.image} alt={item.name} className="max-h-full max-w-full object-contain drop-shadow-lg" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900/90 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <p className="text-white font-medium text-sm truncate">{item.name}</p>
-                      <p className="text-amber-400 text-xs font-bold">{item.price}</p>
-                    </div>
-                    <button className="p-2 bg-white text-black rounded-full hover:bg-amber-400 transition-colors shadow-lg">
-                      <ShoppingCart size={14} />
-                    </button>
-                  </div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white/95 to-transparent pt-12 flex justify-between items-end">
+                   <div>
+                     <p className="text-gray-900 font-medium text-xs truncate w-32">{item.name}</p>
+                     <p className="text-xs font-bold" style={{ color: accentColor }}>{item.price}</p>
+                   </div>
+                   <div className="bg-black p-1.5 rounded-full text-white">
+                      <ShoppingCart size={12} />
+                   </div>
                 </div>
+
+                 <span className={`absolute top-3 left-3 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider ${item.type === 'Swap' ? 'bg-[#2A9D8F] text-white' : 'bg-gray-900 text-white'}`}>
+                  {item.type}
+                </span>
               </div>
             </div>
           );
@@ -209,13 +202,13 @@ const BrowsePage = ({ setCurrentPage, setSelectedItem }) => {
   );
 };
 
-// --- HELPER COMPONENT FOR LINKS ---
+// --- HELPER COMPONENT ---
 const MenuLink = ({ icon: Icon, title, sub, color = "text-gray-400" }) => (
-  <div className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer group">
+  <div className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
     <Icon className={`${color} mt-0.5`} size={20} />
     <div>
-      <h4 className="text-white font-bold text-sm group-hover:text-white transition-colors">{title}</h4>
-      <p className="text-xs text-gray-500">{sub}</p>
+      <h4 className="text-gray-700 font-bold text-sm group-hover:text-black transition-colors">{title}</h4>
+      <p className="text-xs text-gray-400 group-hover:text-gray-500">{sub}</p>
     </div>
   </div>
 );
