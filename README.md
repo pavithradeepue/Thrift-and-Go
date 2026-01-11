@@ -70,8 +70,6 @@ The platform allows users to create a custom avatar based on body measurements a
 
 
 ## 4. Installation & Execution
-
-### **Prerequisites**
 ## ▶️ How to Run the Project
 
 1. Clone the repository  
