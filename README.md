@@ -70,7 +70,7 @@ The platform allows users to create a custom avatar based on body measurements a
 
 
 ## 4. Installation & Execution
-## ▶️ How to Run the Project
+## How to Run the Project
 
 1. Clone the repository  
 `git clone https://github.com/pavithradeepue/Thrift-and-Go.git`
