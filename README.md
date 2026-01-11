@@ -29,7 +29,6 @@ A web platform that combines thrift purchasing, barter-based swapping and an AI-
 ### **Brief Project Description:**  
 The platform allows users to create a custom avatar based on body measurements and virtually try on clothes before purchasing. It encourages sustainability, reduces waste and enhances user confidence when shopping for pre-owned clothing items.
 
----
 
 ## 3. Technical Details
 
@@ -50,13 +49,11 @@ The platform allows users to create a custom avatar based on body measurements a
 - Uvicorn
 - FastAPI
   
----
 
 ### **Libraries, APIs & Models Used** 
 - **Firebase Authentication** for secure user login
 - **OOTDiffusion, model_id=levishu/OOTDiffusion** for temporary virtual try-on
 
----
 
 ### **Implementation Overview**
 
@@ -71,7 +68,6 @@ The platform allows users to create a custom avatar based on body measurements a
 3. Virtual try-on is generated
 4. AI maps clothing mesh onto avatar  
 
----
 
 ## 4. Installation & Execution
 
@@ -103,3 +99,5 @@ The platform allows users to create a custom avatar based on body measurements a
 7. Open in browser  
 `http://localhost:3000`
 
+Demo Video Link:
+https://drive.google.com/drive/u/0/folders/1TZy2GqyAu0UG5o8GqW965iM88pJZ4MVi
