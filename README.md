@@ -78,7 +78,7 @@ The platform allows users to create a custom avatar based on body measurements a
 2. Move into the project folder  
 `cd your-repository-name`
 
-3. Install frontend dependencies  
+3. Install and run the frontend  
 `cd frontend`  
 `npm install`  
 `npm start`
@@ -90,11 +90,11 @@ The platform allows users to create a custom avatar based on body measurements a
 `pip install -r requirements.txt`  
 `uvicorn main:app --reload`
 
-5.5. Set up AI Size Analysis (Google Colab)  
--Open the following notebook and run all cells:  
--https://colab.research.google.com/drive/1LC5ZjCZhQNdqBHrmy2lvWAgk29nM-5uc?usp=sharing  
+5. Set up AI Size Analysis (Google Colab)  
+Open the following notebook and run all cells:  
+https://colab.research.google.com/drive/1LC5ZjCZhQNdqBHrmy2lvWAgk29nM-5uc?usp=sharing  
 
-7. Open in browser  
+6. Open the application in your browser  
 `http://localhost:3000`
 
 Demo Video Link:
