@@ -1,6 +1,5 @@
 # Virtual Thrift & Swap Platform with 3D Try-On
 
----
 
 ## 1. Project Title
 **Thrift-and-Go**
