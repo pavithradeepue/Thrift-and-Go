@@ -96,6 +96,10 @@ The platform allows users to create a custom avatar based on body measurements a
 `pip install -r requirements.txt`  
 `uvicorn main:app --reload`
 
-5. Open in browser  
+5.5. Set up AI Size Analysis (Google Colab)  
+-Open the following notebook and run all cells:  
+-https://colab.research.google.com/drive/1LC5ZjCZhQNdqBHrmy2lvWAgk29nM-5uc?usp=sharing  
+
+7. Open in browser  
 `http://localhost:3000`
 
