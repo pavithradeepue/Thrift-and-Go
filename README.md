@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Virtual Thrift & Swap Platform with 3D Try-On
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## 1. Project Title
+**Virtual Thrift & Swap Platform with 3D Try-On**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 2. Basic Details
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Team Name:**  
+TechWeavers
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **Team Members:**  
+- Devika P Sajith  
+- Roshan Roshin
+- Pavithra Deepu E
+- Ashna Thajudheen 
 
-### `npm test`
+### **Track / Theme:**  
+Sustainable Fashion • AI + Computer Vision • Digital Thrifting
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Problem Statement:**  
+Fast fashion contributes significantly to environmental pollution and leads to a high volume of returns due to improper size and fit. There is no unified digital platform that promotes sustainable clothing reuse and also provides a reliable virtual try-on experience for better decision-making.
 
-### `npm run build`
+### **Solution Overview:**  
+A web platform that combines thrift purchasing, barter-based swapping, and an AI-driven 3D virtual try-on system. Users can swap clothes without money, list and buy second-hand fashion, and view real-time 3D fit on a personalized avatar based on their measurements.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Brief Project Description:**  
+The platform allows users to create a custom 3D avatar based on body measurements and virtually try on clothes before swapping or purchasing. It encourages sustainability, reduces waste, and enhances user confidence when shopping for pre-owned clothing items.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 3. Technical Details
 
-### `npm run eject`
+### **Tech Stack Used**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### **Frontend**
+- React.js  
+- JavaScript  
+- Tailwind CSS  
+- Three.js  
+- WebGL  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### **Backend**
+- Python  
+- FastAPI  
+- Firebase / Appwrite  
+- PostgreSQL  
+- Cloudinary  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### **AI & 3D Technologies**
+- OpenCV  
+- MediaPipe  
+- TensorFlow / PyTorch  
+- Blender  
+- CLO3D  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### **Libraries, APIs & Models Used**
+- **OpenCV** for body and clothing image processing  
+- **MediaPipe** for body landmark detection  
+- **TensorFlow/PyTorch models** for size prediction and fit analysis  
+- **Three.js** for 3D avatar and clothing rendering  
+- **Cloudinary API** for image hosting  
+- **Firebase Authentication** for secure user login  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Implementation Overview**
 
-### Code Splitting
+#### **Key Modules:**
+- User Authentication  
+- Clothing Upload & Listing System  
+- Barter/Swap System  
+- 3D Avatar Generator  
+- Virtual Try-On Renderer  
+- AI-based Fit Predictor  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### **Workflow Summary**
+1. User enters or uploads body measurements  
+2. 3D avatar is generated  
+3. User uploads or selects clothing  
+4. AI maps clothing mesh onto avatar  
+5. User can rotate, zoom, and explore the outfit in 3D  
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 4. Installation & Execution
 
-### Making a Progressive Web App
+### **Prerequisites**
+- Node.js  
+- Python 3.10+  
+- Git  
+- Firebase account  
+- Cloudinary account (optional)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### **Step-by-Step Installation**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### **1️⃣ Clone the repository**
+```bash
+git clone https://github.com/your-username/Thrift-and-Go.git
+cd Thrift-and-Go
