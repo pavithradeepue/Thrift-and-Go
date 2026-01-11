@@ -1,10 +1,10 @@
-# Virtual Thrift & Swap Platform with 3D Try-On
+# Virtual Thrift Platform with AI Virtual Try-on
 
 
 ## 1. Project Title
 **Thrift-and-Go**
 
----
+
 
 ## 2. Basic Details
 
@@ -76,17 +76,26 @@ The platform allows users to create a custom avatar based on body measurements a
 ## 4. Installation & Execution
 
 ### **Prerequisites**
-- Node.js  
-- Python 3.10+  
-- Git  
-- Firebase account  
-- ngrok account 
+## ▶️ How to Run the Project
 
----
+1. Clone the repository  
+`git clone https://github.com/your-username/your-repository-name.git`
 
-### **Step-by-Step Installation**
+2. Move into the project folder  
+`cd your-repository-name`
 
-#### **1️⃣ Clone the repository**
-```bash
-git clone https://github.com/your-username/Thrift-and-Go.git
-cd Thrift-and-Go
+3. Install frontend dependencies  
+`cd frontend`  
+`npm install`  
+`npm start`
+
+4. Open a new terminal and run the backend  
+`cd backend`  
+`python -m venv venv`  
+`venv\Scripts\activate`  
+`pip install -r requirements.txt`  
+`uvicorn main:app --reload`
+
+5. Open in browser  
+`http://localhost:3000`
+
