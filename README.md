@@ -3,14 +3,14 @@
 ---
 
 ## 1. Project Title
-**Virtual Thrift & Swap Platform with 3D Try-On**
+**Thrift-and-Go**
 
 ---
 
 ## 2. Basic Details
 
 ### **Team Name:**  
-TechWeavers
+Style Syndicate
 
 ### **Team Members:**  
 - Devika P Sajith  
@@ -19,16 +19,16 @@ TechWeavers
 - Ashna Thajudheen 
 
 ### **Track / Theme:**  
-Sustainable Fashion • AI + Computer Vision • Digital Thrifting
+Sustainability & Circular Fashion
 
 ### **Problem Statement:**  
-Fast fashion contributes significantly to environmental pollution and leads to a high volume of returns due to improper size and fit. There is no unified digital platform that promotes sustainable clothing reuse and also provides a reliable virtual try-on experience for better decision-making.
+Social Reselling Platform: A social-first marketplace for swapping, reselling, and upcycling garments.
 
 ### **Solution Overview:**  
-A web platform that combines thrift purchasing, barter-based swapping, and an AI-driven 3D virtual try-on system. Users can swap clothes without money, list and buy second-hand fashion, and view real-time 3D fit on a personalized avatar based on their measurements.
+A web platform that combines thrift purchasing, barter-based swapping and an AI-driven virtual try-on system. Users can list and buy second-hand fashion and view real-time fit on a personalized avatar based on their measurements.
 
 ### **Brief Project Description:**  
-The platform allows users to create a custom 3D avatar based on body measurements and virtually try on clothes before swapping or purchasing. It encourages sustainability, reduces waste, and enhances user confidence when shopping for pre-owned clothing items.
+The platform allows users to create a custom avatar based on body measurements and virtually try on clothes before purchasing. It encourages sustainability, reduces waste and enhances user confidence when shopping for pre-owned clothing items.
 
 ---
 
@@ -39,33 +39,23 @@ The platform allows users to create a custom 3D avatar based on body measurement
 #### **Frontend**
 - React.js  
 - JavaScript  
-- Tailwind CSS  
-- Three.js  
-- WebGL  
+- Tailwind CSS    
 
 #### **Backend**
-- Python  
-- FastAPI  
-- Firebase / Appwrite  
-- PostgreSQL  
-- Cloudinary  
+- Python    
+- Firebase 
+- Supabase
 
 #### **AI & 3D Technologies**
-- OpenCV  
-- MediaPipe  
-- TensorFlow / PyTorch  
-- Blender  
-- CLO3D  
-
+- ngrok  
+- Uvicorn
+- FastAPI
+  
 ---
 
-### **Libraries, APIs & Models Used**
-- **OpenCV** for body and clothing image processing  
-- **MediaPipe** for body landmark detection  
-- **TensorFlow/PyTorch models** for size prediction and fit analysis  
-- **Three.js** for 3D avatar and clothing rendering  
-- **Cloudinary API** for image hosting  
-- **Firebase Authentication** for secure user login  
+### **Libraries, APIs & Models Used** 
+- **Firebase Authentication** for secure user login
+- **OOTDiffusion, model_id=levishu/OOTDiffusion** for temporary virtual try-on
 
 ---
 
@@ -73,18 +63,14 @@ The platform allows users to create a custom 3D avatar based on body measurement
 
 #### **Key Modules:**
 - User Authentication  
-- Clothing Upload & Listing System  
-- Barter/Swap System  
-- 3D Avatar Generator  
-- Virtual Try-On Renderer  
-- AI-based Fit Predictor  
+- Clothing Upload & Listing System 
+- Virtual Try-On Renderer   
 
 #### **Workflow Summary**
-1. User enters or uploads body measurements  
-2. 3D avatar is generated  
-3. User uploads or selects clothing  
+1. User enters or uploads body measurements
+2. User uploads or selects clothing  
+3. Virtual try-on is generated
 4. AI maps clothing mesh onto avatar  
-5. User can rotate, zoom, and explore the outfit in 3D  
 
 ---
 
@@ -95,7 +81,7 @@ The platform allows users to create a custom 3D avatar based on body measurement
 - Python 3.10+  
 - Git  
 - Firebase account  
-- Cloudinary account (optional)
+- ngrok account 
 
 ---
 
